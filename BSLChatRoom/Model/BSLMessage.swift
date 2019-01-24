@@ -13,7 +13,7 @@ struct BSLMessage {
     let type: BSLBubbleType
     let timeStamp: Int64
     
-    init(avatar: BSLAvatar, type: BSLBubbleType, timeStamp: Int64 = 0) {
+    init(avatar: BSLAvatar, type: BSLBubbleType, timeStamp: Int64) {
         self.avatar = avatar
         self.type = type
         self.timeStamp = timeStamp

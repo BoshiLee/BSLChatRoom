@@ -25,46 +25,36 @@ extension BSLBubble {
         NSLayoutConstraint.activate([top, xAxis, width, height])
     }
     
-    func handleBubbleLayout(type: BSLBubbleType, avatar: BSLAvatar) {
-        self.layoutAvatarView(avatarImage: avatar.image)
-        switch type {
-        case .message(let content):
-            self.layoutMessageBubble(content)
-        case .image(let content):
-            self.handleImageLayout(content)
-        }
-    }
     
     func layoutMessageLable(_ message:String) -> UILabel {
         let label = UILabel()
         label.numberOfLines = 0
         label.text = message
+        label.textColor = self.isSentByMe ? .outGoingTextColor : .inCommingTextColor
         self.addSubview(label)
-        var padding = self.isSentByMe ? 2*self.paddingSpace : self.paddingSpace
-        var constraints = self.contentYConstraint(label, superView: self, paddingSpace: padding)
+        var constraints = self.contentYConstraint(label, superView: self, paddingSpace: 2*self.paddingSpace)
         let labelWidth = label.widthAnchor.constraint(lessThanOrEqualTo: self.widthAnchor, multiplier: 0.6)
-        padding = padding + (self.avatarView != nil ? 16 : 0)
-        let xAxis = self.contentXConstraint(label, superView: self, paddingSpace: padding)
+        let xAxis = self.contentXConstraint(label, superView: self, paddingSpace: 2*self.paddingSpace)
         constraints.append(contentsOf: [labelWidth, xAxis])
         NSLayoutConstraint.activate(constraints)
         return label
     }
     
-    func layoutMessageBubble(_ message: String) {
+    func layoutMessageBubble(_ message: String) -> UIView {
         let bubble = UIView()
         self.addSubview(bubble)
         bubble.layer.cornerRadius = 10
         let label = self.layoutMessageLable(message)
-        bubble.backgroundColor = self.isSentByMe ? BSLBubbleConfigure.selfMessageColor : BSLBubbleConfigure.otherMessageColor
-        
+        bubble.backgroundColor = self.isSentByMe ? .outGoingBubbleColor : .inCommingBubbleColor
         var constraints = self.contentYConstraint(bubble, superView: label, paddingSpace: -paddingSpace)
         let tralling = bubble.trailingAnchor.constraint(equalTo: label.trailingAnchor, constant: paddingSpace)
         let leading = bubble.leadingAnchor.constraint(equalTo: label.leadingAnchor, constant: -paddingSpace)
         constraints.append(contentsOf: [tralling, leading])
         NSLayoutConstraint.activate(constraints)
+        return bubble
     }
     
-    func handleImageLayout(_ image: UIImage) {
+    func layoutImageBubble(_ image: UIImage) -> UIView {
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
@@ -76,6 +66,7 @@ extension BSLBubble {
         let xAxis = self.contentXConstraint(imageView, superView: self, paddingSpace: self.paddingSpace)
         constraints.append(contentsOf: [width, height, xAxis])
         NSLayoutConstraint.activate(constraints)
+        return imageView
     }
     
     func contentXConstraint(_ content: UIView, superView: UIView, paddingSpace: CGFloat) -> NSLayoutConstraint {
@@ -93,6 +84,17 @@ extension BSLBubble {
         let bottom = content.bottomAnchor.constraint(equalTo: superView.bottomAnchor, constant: -paddingSpace)
         return [top, bottom]
     }
-
-
+    
+    func layoutTimeLable(_ timeString: String, bubbleView: UIView) {
+//        NSLayoutConstraint.deactivate([bubbleView.])
+        self.addSubview(timeLabel)
+        self.timeLabel.text = timeString
+        self.timeLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.timeLabel.numberOfLines = 1
+        self.timeLabel.font = UIFont.systemFont(ofSize: 12.0)
+        self.timeLabel.textColor = .lightGray
+        let xConstraint = self.contentXConstraint(self.timeLabel, superView: self, paddingSpace: self.paddingSpace)
+        let bottom = self.timeLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -self.paddingSpace)
+        NSLayoutConstraint.activate([xConstraint, bottom])
+    }
 }

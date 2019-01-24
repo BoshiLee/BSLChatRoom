@@ -16,6 +16,7 @@
 		9F50B11221F80F050077D158 /* UIStackView+removeAll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F50B11121F80F050077D158 /* UIStackView+removeAll.swift */; };
 		9F6DD4D821F817DC00806437 /* BaseXibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6DD4D721F817DC00806437 /* BaseXibView.swift */; };
 		9F6DD4E021F98C9F00806437 /* BSLBubbleLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6DD4DF21F98C9F00806437 /* BSLBubbleLayout.swift */; };
+		9F6DD4E421F992FD00806437 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6DD4E321F992FD00806437 /* DateHelper.swift */; };
 		9F73426D21F813A90042A8CC /* BSLAvatarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F73426C21F813A90042A8CC /* BSLAvatarView.xib */; };
 		9F73427321F816D40042A8CC /* XibViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F73427221F816D40042A8CC /* XibViewHelper.swift */; };
 		9FF4984121F5964300550D41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF4984021F5964300550D41 /* AppDelegate.swift */; };
@@ -40,6 +41,7 @@
 		9F50B11121F80F050077D158 /* UIStackView+removeAll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+removeAll.swift"; sourceTree = "<group>"; };
 		9F6DD4D721F817DC00806437 /* BaseXibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseXibView.swift; sourceTree = "<group>"; };
 		9F6DD4DF21F98C9F00806437 /* BSLBubbleLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSLBubbleLayout.swift; sourceTree = "<group>"; };
+		9F6DD4E321F992FD00806437 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		9F73426C21F813A90042A8CC /* BSLAvatarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BSLAvatarView.xib; sourceTree = "<group>"; };
 		9F73427221F816D40042A8CC /* XibViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = XibViewHelper.swift; path = ../../../Gamplex/Gamplex/Helper/UIKitHelper/XibViewHelper.swift; sourceTree = "<group>"; };
 		9FF4983D21F5964300550D41 /* BSLChatRoom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BSLChatRoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,6 +85,7 @@
 				9F73427221F816D40042A8CC /* XibViewHelper.swift */,
 				9F50B11121F80F050077D158 /* UIStackView+removeAll.swift */,
 				9F6DD4D721F817DC00806437 /* BaseXibView.swift */,
+				9F6DD4E321F992FD00806437 /* DateHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				9F50B0FF21F6FD9E0077D158 /* BSLBubbleType.swift in Sources */,
 				9FF4985521F5B63700550D41 /* BSLChatRoomViewController.swift in Sources */,
 				9FF4987121F6E41400550D41 /* UITableViewHelper.swift in Sources */,
+				9F6DD4E421F992FD00806437 /* DateHelper.swift in Sources */,
 				9F50B10521F70D460077D158 /* BSLBubbleViewModel.swift in Sources */,
 				9F6DD4D821F817DC00806437 /* BaseXibView.swift in Sources */,
 				9F6DD4E021F98C9F00806437 /* BSLBubbleLayout.swift in Sources */,

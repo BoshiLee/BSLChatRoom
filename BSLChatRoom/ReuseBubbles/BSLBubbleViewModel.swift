@@ -13,10 +13,12 @@ class BSLBubbleViewModel: TableCellViewModelProtocol {
     let avatar: BSLAvatar
     var isSentByMe: Bool = false
     let type: BSLBubbleType
+    let timeString: String
     
-    init(message: BSLMessage) {
+    init(message: BSLMessage, readTime: String) {
         self.avatar = message.avatar
         self.type = message.type
+        self.timeString = readTime
         self.isSentByMe = self.isUserSentsThisMessage(message: message)
     }
     

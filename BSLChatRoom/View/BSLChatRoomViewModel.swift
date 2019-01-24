@@ -48,7 +48,7 @@ extension BSLChatRoomViewModel: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellVMs = self.messages.compactMap { BSLBubbleViewModel(message: $0) }
+        let cellVMs = self.messages.compactMap { BSLBubbleViewModel(message: $0, readTime: $0.timeStamp.toDateString(formate: .HHmm)) }
         let cell = cellVMs[indexPath.row].cellInstance(cell: BSLBubble.self, tableView: tableView, atIndexPath: indexPath)
         cell.configure(withViewModel: cellVMs[indexPath.row])
         return cell

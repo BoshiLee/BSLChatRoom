@@ -14,6 +14,7 @@ class BSLBubble: UITableViewCell, BSLBubbleProtocol {
     
     var avatarView: BSLAvatarView?
     var paddingSpace: CGFloat = 16.0
+    lazy var timeLabel = UILabel()
     
     // MARK: - Cell initial
     
@@ -35,9 +36,18 @@ class BSLBubble: UITableViewCell, BSLBubbleProtocol {
         
     func configure(withViewModel viewModel: BSLBubbleViewModel) {
         self.isSentByMe = viewModel.isSentByMe
-        self.handleBubbleLayout(type: viewModel.type, avatar: viewModel.avatar)
+        self.handleBubbleLayout(type: viewModel.type, avatar: viewModel.avatar, timeString: viewModel.timeString)
         
     }
     
+    func handleBubbleLayout(type: BSLBubbleType, avatar: BSLAvatar, timeString: String) {
+        self.layoutAvatarView(avatarImage: avatar.image)
+        switch type {
+        case .message(let content):
+            self.layoutMessageBubble(content)
+        case .image(let content):
+            self.layoutImageBubble(content)
+        }
+    }
         
 }

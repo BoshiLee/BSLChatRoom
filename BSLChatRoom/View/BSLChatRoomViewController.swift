@@ -17,11 +17,11 @@ class BSLChatRoomViewController: UITableViewController {
     
     var fakeMessage: [BSLMessage] {
         return [
-            BSLMessage(avatar: fakeUserA, type: .message(content: "From these, it seems that calling just removeFromSuperview is enough to remove a subview and I've been using it like that without problems. I also confirmed the behavior by logging the count of the arrangedSubviews array when removeFromSuperview is called. A lot of tutorials and comments here on  however, say to call both. Is there a reason for this? Or do people just do it because the documentation says so?")),
-            BSLMessage(avatar: fakeUserB, type: .message(content: "/* Removes a subview from the list of arranged subviews without removing it as a subview of the receiver.To remove the view as a subview, send it -removeFromSuperview as usual; the relevant UIStackView will remove it from its arrangedSubviews list")),
-            BSLMessage(avatar: fakeUserA, type: .message(content: "213"), timeStamp: 12345),
-            BSLMessage(avatar: fakeUserB, type: .image(content: #imageLiteral(resourceName: "no-image.png"))),
-            BSLMessage(avatar: fakeUserA, type: .image(content: #imageLiteral(resourceName: "no-image.png")))
+            BSLMessage(avatar: fakeUserA, type: .message(content: "From these, it seems that calling just removeFromSuperview is enough to remove a subview and I've been using it like that without problems. I also confirmed the behavior by logging the count of the arrangedSubviews array when removeFromSuperview is called. A lot of tutorials and comments here on  however, say to call both. Is there a reason for this? Or do people just do it because the documentation says so?"), timeStamp: 1547804623000),
+            BSLMessage(avatar: fakeUserB, type: .message(content: "/* Removes a subview from the list of arranged subviews without removing it as a subview of the receiver.To remove the view as a subview, send it -removeFromSuperview as usual; the relevant UIStackView will remove it from its arrangedSubviews list"), timeStamp: 1547458411000),
+            BSLMessage(avatar: fakeUserA, type: .message(content: "213"), timeStamp: 1547448411000),
+            BSLMessage(avatar: fakeUserB, type: .image(content: #imageLiteral(resourceName: "no-image.png")), timeStamp: 1547458514000),
+            BSLMessage(avatar: fakeUserA, type: .image(content: #imageLiteral(resourceName: "no-image.png")), timeStamp: 1547393168000)
         ]
 
     }
