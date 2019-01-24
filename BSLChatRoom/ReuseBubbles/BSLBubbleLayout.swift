@@ -34,7 +34,7 @@ extension BSLBubble {
         self.addSubview(label)
         var constraints = self.contentYConstraint(label, superView: self, paddingSpace: 2*self.paddingSpace)
         let labelWidth = label.widthAnchor.constraint(lessThanOrEqualTo: self.widthAnchor, multiplier: 0.6)
-        let xAxis = self.contentXConstraint(label, superView: self, paddingSpace: 2*self.paddingSpace)
+        let xAxis = self.contentXConstraint(label, superView: self, paddingSpace: 3*self.paddingSpace)
         constraints.append(contentsOf: [labelWidth, xAxis])
         NSLayoutConstraint.activate(constraints)
         return label
@@ -47,8 +47,10 @@ extension BSLBubble {
         let label = self.layoutMessageLable(message)
         bubble.backgroundColor = self.isSentByMe ? .outGoingBubbleColor : .inCommingBubbleColor
         var constraints = self.contentYConstraint(bubble, superView: label, paddingSpace: -paddingSpace)
-        let tralling = bubble.trailingAnchor.constraint(equalTo: label.trailingAnchor, constant: paddingSpace)
-        let leading = bubble.leadingAnchor.constraint(equalTo: label.leadingAnchor, constant: -paddingSpace)
+        
+        let tralling = bubble.trailingAnchor.constraint(equalTo: label.trailingAnchor, constant: 2*paddingSpace)
+        let leading = bubble.leadingAnchor.constraint(equalTo: label.leadingAnchor, constant: -2*paddingSpace)
+        
         constraints.append(contentsOf: [tralling, leading])
         NSLayoutConstraint.activate(constraints)
         return bubble

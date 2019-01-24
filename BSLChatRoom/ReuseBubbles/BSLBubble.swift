@@ -13,7 +13,7 @@ class BSLBubble: UITableViewCell, BSLBubbleProtocol {
     var isSentByMe: Bool = false
     
     var avatarView: BSLAvatarView?
-    var paddingSpace: CGFloat = 16.0
+    var paddingSpace: CGFloat = 8.0
     lazy var timeLabel = UILabel()
     
     // MARK: - Cell initial
