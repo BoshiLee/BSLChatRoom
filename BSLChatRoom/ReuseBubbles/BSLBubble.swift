@@ -44,9 +44,9 @@ class BSLBubble: UITableViewCell, BSLBubbleProtocol {
         self.layoutAvatarView(avatarImage: avatar.image)
         switch type {
         case .message(let content):
-            self.layoutMessageBubble(content)
+            self.layoutMessageBubble(content, timeString: timeString)
         case .image(let content):
-            self.layoutImageBubble(content)
+            self.layoutImageBubble(content, timeString: timeString)
         }
     }
         
