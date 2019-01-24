@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB" customClass="BSLAvatarView" customModule="BSLChatRoom" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="46" height="46"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zzv-Ab-Pqa">
+                    <rect key="frame" x="0.0" y="0.0" width="46" height="46"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatarDefault" translatesAutoresizingMaskIntoConstraints="NO" id="Abs-Nx-NQD">
+                            <rect key="frame" x="2.5" y="2.5" width="41" height="41"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="Abs-Nx-NQD" secondAttribute="height" id="0ZL-tn-zpS"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="Abs-Nx-NQD" firstAttribute="centerY" secondItem="Zzv-Ab-Pqa" secondAttribute="centerY" id="73i-O5-S1a"/>
+                        <constraint firstItem="Abs-Nx-NQD" firstAttribute="width" secondItem="Zzv-Ab-Pqa" secondAttribute="width" multiplier="0.9" id="gz1-Qt-Xxy"/>
+                        <constraint firstItem="Abs-Nx-NQD" firstAttribute="centerX" secondItem="Zzv-Ab-Pqa" secondAttribute="centerX" id="wC7-Ci-JKu"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Zzv-Ab-Pqa" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Sce-fF-npv"/>
+                <constraint firstAttribute="bottom" secondItem="Zzv-Ab-Pqa" secondAttribute="bottom" id="aL1-NM-CT1"/>
+                <constraint firstItem="Zzv-Ab-Pqa" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="udQ-T6-Pyo"/>
+                <constraint firstItem="Zzv-Ab-Pqa" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="wBq-kH-1rR"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="imageView" destination="Abs-Nx-NQD" id="jFU-Ut-gL1"/>
+            </connections>
+            <point key="canvasLocation" x="-128" y="-231.18440779610197"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="avatarDefault" width="110" height="110"/>
+    </resources>
+</document>
