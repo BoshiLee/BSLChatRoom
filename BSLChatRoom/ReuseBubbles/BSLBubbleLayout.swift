@@ -25,7 +25,31 @@ extension BSLBubble {
         NSLayoutConstraint.activate([top, xAxis, width, height])
     }
     
+    func layoutTimeLable(_ timeString: String){
+        self.addSubview(timeLabel)
+        self.timeLabel.text = timeString
+        self.timeLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.timeLabel.numberOfLines = 1
+        self.timeLabel.font = UIFont.systemFont(ofSize: 12.0)
+        self.timeLabel.textColor = .lightGray
+        let xConstraint = self.contentXConstraint(self.timeLabel, superView: self, paddingSpace: self.paddingSpace)
+        let bottom = self.bottomConstraint(self.timeLabel, superView: self, paddingSpace: self.paddingSpace)
+        NSLayoutConstraint.activate([xConstraint, bottom])
+    }
     
+    func contentXConstraint(_ content: UIView, superView: UIView, paddingSpace: CGFloat) -> NSLayoutConstraint {
+        if self.isSentByMe {
+            return content.trailingAnchor.constraint(equalTo: self.avatarView != nil ?  self.avatarView!.leadingAnchor : superView.trailingAnchor, constant: -paddingSpace)
+            
+        } else {
+            return content.leadingAnchor.constraint(equalTo: self.avatarView != nil ?self.avatarView!.trailingAnchor : superView.leadingAnchor, constant: paddingSpace)
+        }
+    }
+    
+}
+
+// MARK: - Message Bubble Layout
+extension BSLBubble {
     func layoutMessageLable(_ message:String) -> UILabel {
         let label = UILabel()
         label.numberOfLines = 0
@@ -57,7 +81,10 @@ extension BSLBubble {
         constraints.append(contentsOf: [top, bottom, tralling, leading])
         NSLayoutConstraint.activate(constraints)
     }
-    
+}
+
+// MARK: - Image Bubble Layout
+extension BSLBubble {
     func layoutImageBubble(_ image: UIImage, timeString: String) {
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFill
@@ -74,27 +101,11 @@ extension BSLBubble {
         constraints.append(contentsOf: [top, width, bottom, height, xAxis])
         NSLayoutConstraint.activate(constraints)
     }
-    
-    func layoutTimeLable(_ timeString: String){
-        self.addSubview(timeLabel)
-        self.timeLabel.text = timeString
-        self.timeLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.timeLabel.numberOfLines = 1
-        self.timeLabel.font = UIFont.systemFont(ofSize: 12.0)
-        self.timeLabel.textColor = .lightGray
-        let xConstraint = self.contentXConstraint(self.timeLabel, superView: self, paddingSpace: self.paddingSpace)
-        let bottom = self.bottomConstraint(self.timeLabel, superView: self, paddingSpace: self.paddingSpace)
-        NSLayoutConstraint.activate([xConstraint, bottom])
-    }
-    
-    func contentXConstraint(_ content: UIView, superView: UIView, paddingSpace: CGFloat) -> NSLayoutConstraint {
-        if self.isSentByMe {
-            return content.trailingAnchor.constraint(equalTo: self.avatarView != nil ?  self.avatarView!.leadingAnchor : superView.trailingAnchor, constant: -paddingSpace)
-            
-        } else {
-            return content.leadingAnchor.constraint(equalTo: self.avatarView != nil ?self.avatarView!.trailingAnchor : superView.leadingAnchor, constant: paddingSpace)
-        }
-    }
+
+}
+
+// MARK: - Genric Constraints
+extension BSLBubble {
     
     func topConstraint(_ content: UIView, superView: UIView, paddingSpace: CGFloat) -> NSLayoutConstraint {
         content.translatesAutoresizingMaskIntoConstraints = false
@@ -104,4 +115,5 @@ extension BSLBubble {
     func bottomConstraint(_ content: UIView, superView: UIView, paddingSpace: CGFloat) -> NSLayoutConstraint {
         return content.bottomAnchor.constraint(equalTo: superView.bottomAnchor, constant: -paddingSpace)
     }
+
 }
