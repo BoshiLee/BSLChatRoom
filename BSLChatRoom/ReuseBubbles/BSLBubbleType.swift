@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum BSLBubbleType {
+enum BSLBubbleType: Equatable {
     case message(content: String)
     case image(content: UIImage)
 }

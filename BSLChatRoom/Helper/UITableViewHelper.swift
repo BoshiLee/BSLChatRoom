@@ -48,6 +48,17 @@ extension UITableView {
     
 }
 
+protocol TableSectionViewModelProtocol {
+    func sectionInstance<T: UITableViewHeaderFooterView>(headerFooter: T.Type, tableView: UITableView) -> T
+}
+
+extension TableSectionViewModelProtocol {
+    func sectionInstance<T: UITableViewHeaderFooterView>(headerFooter: T.Type, tableView: UITableView) -> T {
+        tableView.registerHeaderFooter(headerFooter)
+        return tableView.dequeueHeaderFooter(headerFooter)
+    }
+}
+
 protocol TableCellViewModelProtocol {
     func cellInstance<T: UITableViewCell>(cell: T.Type, tableView: UITableView, atIndexPath indexPath: IndexPath) -> T
 }

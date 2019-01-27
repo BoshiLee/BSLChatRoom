@@ -146,9 +146,12 @@ extension Calendar {
     }
 }
 
-fileprivate extension Date {
+extension Date {
     
     var localTimeZoneName: String { return TimeZone.current.identifier }
+    
+    static var systemTimeZone = TimeZone.ReferenceType.system
+    static var local = Locale.ReferenceType.system
     
     func toString(formate: String) -> String {
         let formatter = DateFormatter()
@@ -157,6 +160,12 @@ fileprivate extension Date {
         return formatter.string(from: self)
     }
     
+    mutating func removeTimeStamp() {
+        guard let date = Calendar.current.date(from: Calendar.current.dateComponents([.year, .month, .day], from: self)) else {
+            return
+        }
+        self = date
+    }
 }
 
 enum DateFormate: String {
@@ -164,6 +173,8 @@ enum DateFormate: String {
     case slashDateWithHHmm = "YYYY/MM/dd HH:mm"
     case dashDate = "YYYY-MM-dd"
     case dashDateWithHHmm = "YYYY-MM-dd HH:mm"
+    case chineseYYYYMMdddEEEEE = "YYYY 年 M 月 dd 日 (EEEEE) HH:mm"
+    case chineseYYYYMMddd = "YYYY 年 M 月 dd 日 (EEEEE)"
     case HHmm = "HH:mm"
     
     private var dateFormatter: DateFormatter {
@@ -199,6 +210,11 @@ extension Int64 {
             return "時間格式錯誤"
         }
         return dateString
+    }
+    
+    func isDate(inSameDayAs secondTimeStamp: Int64) -> Bool {
+        guard let firstDate = self.toDate(), let secondDate = secondTimeStamp.toDate() else { return false }
+        return Calendar.current.isDate(firstDate, inSameDayAs: secondDate)
     }
     
     public func covertToRemindString() -> String {
@@ -243,11 +259,22 @@ struct TimeStampConverter {
     
     func convertToDateString(of formate: DateFormate) -> String? {
         let formatter = DateFormatter()
+        formatter.timeZone = Date.systemTimeZone
         formatter.dateFormat = formate.rawValue
         let date = Date(timeIntervalSince1970: TimeInterval(timeStamp))
         let dateString = formatter.string(from: date)
         return dateString
     }
+    
+//    func convertToChineseDateString(of formate: DateFormate) -> String? {
+//        let formatter = DateFormatter()
+//        formatter.locale = Locale(identifier: "zh_Hant_TW")
+//        formatter.timeZone = Date.systemTimeZone
+//        formatter.dateFormat = formate.rawValue
+//        let date = Date(timeIntervalSince1970: TimeInterval(timeStamp))
+//        let dateString = formatter.string(from: date)
+//        return dateString
+//    }
     
     static func converToTimeStamp(_ date: Date) -> TimeStampConverter {
         let timeInterval: TimeInterval = date.timeIntervalSince1970
