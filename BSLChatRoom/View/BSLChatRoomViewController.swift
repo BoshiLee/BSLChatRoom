@@ -28,7 +28,7 @@ class BSLChatRoomViewController: UIViewController {
         BSLBubbleConfigure.userAvatar = self.fakeUserA
         let message = [BSLMessage(guid: UUID().uuidString, avatar: fakeUserA, type: .message(content: "A"), timeStamp: 1547804623000, isRead: true),
             BSLMessage(guid: UUID().uuidString, avatar: fakeUserA, type: .message(content: "B"), timeStamp: 1547804624000, isRead: true),
-            BSLMessage(guid: UUID().uuidString, avatar: fakeUserA, type: .message(content: "B"), timeStamp: 1547458411000, isRead: true),
+            BSLMessage(guid: UUID().uuidString, avatar: fakeUserA, type: .message(content: "F"), timeStamp: 1547458411000, isRead: true),
             BSLMessage(guid: UUID().uuidString, avatar: fakeUserB, type: .message(content: "C"), timeStamp: 1547953411000, isRead: true),
             BSLMessage(guid: UUID().uuidString, avatar: fakeUserB, type: .message(content: "D"), timeStamp: 1547153411000, isRead: true)
             
