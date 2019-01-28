@@ -22,6 +22,8 @@
 		9F87B7E721FC1A4200936004 /* BSLSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F87B7E621FC1A4200936004 /* BSLSectionView.swift */; };
 		9F87B7ED21FD6CD200936004 /* BSLSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F87B7EC21FD6CD200936004 /* BSLSectionViewModel.swift */; };
 		9F87B7F121FD9A2700936004 /* XibViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F87B7F021FD9A2700936004 /* XibViewHelper.swift */; };
+		9F87B7F521FDAF1200936004 /* BSLInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F87B7F421FDAF1200936004 /* BSLInputView.swift */; };
+		9F87B7F721FDAF2C00936004 /* BSLInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F87B7F621FDAF2C00936004 /* BSLInputView.xib */; };
 		9FF4984121F5964300550D41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF4984021F5964300550D41 /* AppDelegate.swift */; };
 		9FF4984621F5964300550D41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FF4984421F5964300550D41 /* Main.storyboard */; };
 		9FF4984821F5964500550D41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FF4984721F5964500550D41 /* Assets.xcassets */; };
@@ -50,6 +52,8 @@
 		9F87B7E621FC1A4200936004 /* BSLSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSLSectionView.swift; sourceTree = "<group>"; };
 		9F87B7EC21FD6CD200936004 /* BSLSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSLSectionViewModel.swift; sourceTree = "<group>"; };
 		9F87B7F021FD9A2700936004 /* XibViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibViewHelper.swift; sourceTree = "<group>"; };
+		9F87B7F421FDAF1200936004 /* BSLInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSLInputView.swift; sourceTree = "<group>"; };
+		9F87B7F621FDAF2C00936004 /* BSLInputView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BSLInputView.xib; sourceTree = "<group>"; };
 		9FF4983D21F5964300550D41 /* BSLChatRoom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BSLChatRoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FF4984021F5964300550D41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FF4984521F5964300550D41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -103,6 +107,8 @@
 				9F50B10721F710100077D158 /* BSLChatRoomViewModel.swift */,
 				9F04A90221FACF6700106693 /* BSLChatRoomCoordinator.swift */,
 				9FF4985421F5B63700550D41 /* BSLChatRoomViewController.swift */,
+				9F87B7F421FDAF1200936004 /* BSLInputView.swift */,
+				9F87B7F621FDAF2C00936004 /* BSLInputView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -215,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FF4984B21F5964500550D41 /* LaunchScreen.storyboard in Resources */,
+				9F87B7F721FDAF2C00936004 /* BSLInputView.xib in Resources */,
 				9FF4984821F5964500550D41 /* Assets.xcassets in Resources */,
 				9F50B11021F759350077D158 /* no-image.png in Resources */,
 				9FF4984621F5964300550D41 /* Main.storyboard in Resources */,
@@ -229,6 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F87B7F521FDAF1200936004 /* BSLInputView.swift in Sources */,
 				9FF4986321F6B82100550D41 /* BSLAvatar.swift in Sources */,
 				9FF4984121F5964300550D41 /* AppDelegate.swift in Sources */,
 				9F50B11221F80F050077D158 /* UIStackView+removeAll.swift in Sources */,

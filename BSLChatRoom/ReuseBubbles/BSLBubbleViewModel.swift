@@ -11,7 +11,7 @@ import Foundation
 class BSLBubbleViewModel: TableCellViewModelProtocol {
     
     let avatar: BSLAvatar
-    var isSentByMe: Bool = false
+    var isOutGoing: Bool = false
     let type: BSLBubbleType
     var timeString: String
     
@@ -19,8 +19,8 @@ class BSLBubbleViewModel: TableCellViewModelProtocol {
         self.avatar = message.avatar
         self.type = message.type
         self.timeString = message.timeStamp.toDateString(formate: .HHmm)
-        self.isSentByMe = self.isUserSentsThisMessage(message: message)
-        if isSentByMe {
+        self.isOutGoing = self.isUserSentsThisMessage(message: message)
+        if isOutGoing {
             self.timeString = self.timeString + (message.isRead ? "已讀" : "")
         }
     }

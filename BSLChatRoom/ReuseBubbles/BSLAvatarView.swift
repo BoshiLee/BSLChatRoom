@@ -11,7 +11,5 @@ import UIKit
 class BSLAvatarView: BaseXibView {
 
     @IBOutlet weak var imageView: UIImageView!
-    
-
-    
+        
 }
