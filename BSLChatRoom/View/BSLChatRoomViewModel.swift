@@ -40,6 +40,14 @@ extension BSLChatRoomViewModel: UITableViewDelegate, UITableViewDataSource {
         return 18.0
     }
     
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200.0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let vm = self.coordinator.createHeader(atSection: section) else { return nil }
         let sectionView = vm.sectionInstance(headerFooter: BSLSectionView.self, tableView: tableView)
