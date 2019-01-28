@@ -10,7 +10,7 @@ import UIKit
 
 class BSLBubble: UITableViewCell, BSLBubbleProtocol {
     
-    var isSentByMe: Bool = false
+    var isOutGoing: Bool = false
     
     var avatarView: BSLAvatarView?
     var paddingSpace: CGFloat = 8.0
@@ -35,7 +35,7 @@ class BSLBubble: UITableViewCell, BSLBubbleProtocol {
     
         
     func configure(withViewModel viewModel: BSLBubbleViewModel) {
-        self.isSentByMe = viewModel.isSentByMe
+        self.isOutGoing = viewModel.isOutGoing
         self.handleBubbleLayout(type: viewModel.type, avatar: viewModel.avatar, timeString: viewModel.timeString)
         
     }

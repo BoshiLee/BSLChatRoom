@@ -11,17 +11,20 @@ import UIKit
 extension BSLBubble {
     
     func layoutAvatarView(avatarImage: UIImage) {
-        guard (isSentByMe && BSLBubbleConfigure.shouldShowSelfAvatar) || (!isSentByMe && BSLBubbleConfigure.shouldShowOtherAvatar) else { return }
+        guard (isOutGoing && BSLBubbleConfigure.shouldShowSelfAvatar) || (!isOutGoing && BSLBubbleConfigure.shouldShowOtherAvatar) else { return }
         self.avatarView = XibViewHelper<BSLAvatarView>.instantiateNib()
         self.avatarView?.imageView.image = avatarImage
         self.addSubview(avatarView!)
         self.avatarView?.translatesAutoresizingMaskIntoConstraints = false
         let top = self.avatarView!.topAnchor.constraint(equalTo: self.topAnchor, constant: self.paddingSpace)
-        let xAxis = isSentByMe ?
+        let xAxis = isOutGoing ?
             self.avatarView!.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: self.paddingSpace / 2) :
             self.avatarView!.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: self.paddingSpace / 2)
         let width = self.avatarView!.widthAnchor.constraint(equalToConstant: BSLBubbleConfigure.avatarImageWidth)
         let height = self.avatarView!.heightAnchor.constraint(equalToConstant: BSLBubbleConfigure.avatarImageWidth)
+        self.avatarView?.layer.cornerRadius = BSLBubbleConfigure.avatarImageWidth / 2
+        self.avatarView?.imageView.layer.cornerRadius = BSLBubbleConfigure.avatarImageWidth * 0.9 / 2
+        self.avatarView?.imageView.clipsToBounds = true
         NSLayoutConstraint.activate([top, xAxis, width, height])
     }
     
@@ -38,7 +41,7 @@ extension BSLBubble {
     }
     
     func contentXConstraint(_ content: UIView, superView: UIView, paddingSpace: CGFloat) -> NSLayoutConstraint {
-        if self.isSentByMe {
+        if self.isOutGoing {
             return content.trailingAnchor.constraint(equalTo: self.avatarView != nil ?  self.avatarView!.leadingAnchor : superView.trailingAnchor, constant: -paddingSpace)
             
         } else {
@@ -54,7 +57,7 @@ extension BSLBubble {
         let label = UILabel()
         label.numberOfLines = 0
         label.text = message
-        label.textColor = self.isSentByMe ? .outGoingTextColor : .inCommingTextColor
+        label.textColor = self.isOutGoing ? .outGoingTextColor : .inCommingTextColor
         self.addSubview(label)
         var constraints = [NSLayoutConstraint]()
         let top = self.topConstraint(label, superView: self, paddingSpace: 2*self.paddingSpace)
@@ -69,13 +72,13 @@ extension BSLBubble {
     func layoutMessageBubble(_ message: String, timeString: String) {
         let bubble = UIView()
         self.addSubview(bubble)
-        bubble.layer.cornerRadius = 10
+        bubble.layer.cornerRadius = 17
         self.layoutTimeLable(timeString)
         let label = self.layoutMessageLable(message)
         var constraints = [NSLayoutConstraint]()
-        bubble.backgroundColor = self.isSentByMe ? .outGoingBubbleColor : .inCommingBubbleColor
+        bubble.backgroundColor = self.isOutGoing ? .outGoingBubbleColor : .inCommingBubbleColor
         let top = self.topConstraint(bubble, superView: label, paddingSpace: -paddingSpace)
-        let bottom = bubble.bottomAnchor.constraint(equalTo: self.timeLabel.topAnchor, constant: -self.paddingSpace)
+        let bottom = bubble.bottomAnchor.constraint(equalTo: label.bottomAnchor, constant: -self.paddingSpace)
         let tralling = bubble.trailingAnchor.constraint(equalTo: label.trailingAnchor, constant: 2*paddingSpace)
         let leading = bubble.leadingAnchor.constraint(equalTo: label.leadingAnchor, constant: -2*paddingSpace)
         constraints.append(contentsOf: [top, bottom, tralling, leading])

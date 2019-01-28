@@ -8,9 +8,8 @@
 
 import UIKit
 
-class BSLChatRoomViewController: UIViewController {
+class BSLChatRoomViewController: UITableViewController {
     
-    var tableView: UITableView!
     
     fileprivate lazy var viewModel = BSLChatRoomViewModel(presenter: self)
     
@@ -19,8 +18,7 @@ class BSLChatRoomViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView = UITableView(frame: self.view.frame, style: .grouped)
-        self.view.addSubview(self.tableView)
+        self.tableView = UITableView(frame: .zero, style: .grouped)
         self.tableView.separatorStyle = .none
         self.tableView.dataSource = self.viewModel
         self.tableView.delegate = self.viewModel

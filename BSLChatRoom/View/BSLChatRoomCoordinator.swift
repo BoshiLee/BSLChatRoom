@@ -18,12 +18,6 @@ class BSLChatRoomCoordinator {
     func appendNewMessages(_ messages: [BSLMessage]) -> [[BSLBubbleViewModel]] {
         self.groupingMessages(messages)
         
-        for (i, groupMessage) in self.groupMessages.enumerated() {
-            for (j, message) in groupMessage.enumerated() {
-                print(i, j, message.type, message.timeStamp)
-            }
-        }
-        
         return groupMessages.compactMap { messages in
             return messages.map {
                 BSLBubbleViewModel(message: $0)

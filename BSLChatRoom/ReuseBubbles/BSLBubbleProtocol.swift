@@ -9,7 +9,7 @@
 import UIKit
 
 protocol BSLBubbleProtocol where Self: UITableViewCell {
-    var isSentByMe: Bool { get set }
+    var isOutGoing: Bool { get set }
     func configure(withViewModel viewModel: BSLBubbleViewModel)
 }
 
