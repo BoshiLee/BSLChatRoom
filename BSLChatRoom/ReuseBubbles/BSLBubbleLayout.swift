@@ -78,7 +78,7 @@ extension BSLBubble {
         var constraints = [NSLayoutConstraint]()
         bubble.backgroundColor = self.isOutGoing ? .outGoingBubbleColor : .inCommingBubbleColor
         let top = self.topConstraint(bubble, superView: label, paddingSpace: -paddingSpace)
-        let bottom = bubble.bottomAnchor.constraint(equalTo: label.bottomAnchor, constant: -self.paddingSpace)
+        let bottom = bubble.bottomAnchor.constraint(equalTo: label.bottomAnchor, constant: self.paddingSpace)
         let tralling = bubble.trailingAnchor.constraint(equalTo: label.trailingAnchor, constant: 2*paddingSpace)
         let leading = bubble.leadingAnchor.constraint(equalTo: label.leadingAnchor, constant: -2*paddingSpace)
         constraints.append(contentsOf: [top, bottom, tralling, leading])

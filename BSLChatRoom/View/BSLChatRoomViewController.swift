@@ -8,8 +8,13 @@
 
 import UIKit
 
-class BSLChatRoomViewController: UITableViewController {
+class BSLChatRoomViewController: UIViewController {
     
+    var tableView: UITableView!
+    var bslInputView: BSLInputView!
+    let originalInputViewHeight: CGFloat = 58.0
+    var inputViewHeight: NSLayoutConstraint!
+    var inputViewBottom: NSLayoutConstraint!
     
     fileprivate lazy var viewModel = BSLChatRoomViewModel(presenter: self)
     
@@ -18,11 +23,11 @@ class BSLChatRoomViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView = UITableView(frame: .zero, style: .grouped)
-        self.tableView.separatorStyle = .none
+        self.hideKeyboardWhenTappedAround()
+        self.initInputView()
+        self.initTableView()
         self.tableView.dataSource = self.viewModel
         self.tableView.delegate = self.viewModel
-        self.tableView.backgroundColor = .chatRoomBackgroundColor
         BSLBubbleConfigure.userAvatar = self.fakeUserA
         let message = [BSLMessage(guid: UUID().uuidString, avatar: fakeUserA, type: .message(content: "A"), timeStamp: 1547804623000, isRead: true),
             BSLMessage(guid: UUID().uuidString, avatar: fakeUserA, type: .message(content: "B"), timeStamp: 1547804624000, isRead: true),
@@ -37,6 +42,10 @@ class BSLChatRoomViewController: UITableViewController {
 }
 
 extension BSLChatRoomViewController: BSLChatRoomPresentable {
+    func hideKeyboard() {
+        self.dismissKeyboard()
+    }
+    
     func didAppendMessages(indeices: [IndexPath]) {
         if #available(iOS 11.0, *) {
             self.tableView.performBatchUpdates({ [weak self] in
