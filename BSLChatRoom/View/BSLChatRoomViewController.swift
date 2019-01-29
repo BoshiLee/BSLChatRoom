@@ -30,10 +30,10 @@ class BSLChatRoomViewController: UIViewController {
         self.tableView.delegate = self.viewModel
         BSLBubbleConfigure.userAvatar = self.fakeUserA
         let message = [BSLMessage(guid: UUID().uuidString, avatar: fakeUserA, type: .message(content: "A"), timeStamp: 1547804623000, isRead: true),
-            BSLMessage(guid: UUID().uuidString, avatar: fakeUserA, type: .message(content: "B"), timeStamp: 1547804624000, isRead: true),
-            BSLMessage(guid: UUID().uuidString, avatar: fakeUserA, type: .message(content: "F"), timeStamp: 1547458411000, isRead: true),
-            BSLMessage(guid: UUID().uuidString, avatar: fakeUserB, type: .message(content: "C"), timeStamp: 1547953411000, isRead: true),
-            BSLMessage(guid: UUID().uuidString, avatar: fakeUserB, type: .message(content: "D"), timeStamp: 1547153411000, isRead: true)
+                       BSLMessage(guid: UUID().uuidString, avatar: fakeUserA, type: .message(content: "とおくをつなぐもの」。このタイトルから、あなたはどんな情景をイメージしただろうか？インターネットや携帯電話をベースに見知らぬ 誰かと繋がるためのサービスが次々と生み出され、その消費速度も どんどん速まっている昨今。百景の音楽が感じさせてくれるのは、 ある種そういうものとは対極的なところにある“人肌の温かさ”の"), timeStamp: 1547804624000, isRead: true),
+            BSLMessage(guid: UUID().uuidString, avatar: fakeUserA, type: .message(content: "ようなものだと思っている。"), timeStamp: 1547458411000, isRead: true),
+                BSLMessage(guid: UUID().uuidString, avatar: fakeUserB, type: .message(content: "ジャム・バンドやポスト・ロック勢とも違い、3人が“うたう”ように楽器を奏でることで生まれる、独特の日本的な温かみをもった叙情性。"), timeStamp: 1547953411000, isRead: true),
+                BSLMessage(guid: UUID().uuidString, avatar: fakeUserB, type: .message(content: "インストゥルメンタルのロック・バンドは多くあれど、そういったものを醸し出すことのできるのは彼らだけだ。"), timeStamp: 1547153411000, isRead: true)
             
         ]
         self.viewModel.appendMessage(message)

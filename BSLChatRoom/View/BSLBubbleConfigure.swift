@@ -11,7 +11,7 @@ import UIKit
 struct BSLBubbleConfigure {
     static var shouldShowSelfAvatar: Bool = false
     static var shouldShowOtherAvatar: Bool = true
-    static var avatarImageWidth: CGFloat = 50.0
+    static var avatarImageWidth: CGFloat = 32.0
     static var userAvatar: BSLAvatar?
 }
 
@@ -21,5 +21,5 @@ extension UIColor {
     static var inCommingBubbleColor: UIColor = .white
     static var inCommingTextColor: UIColor = #colorLiteral(red: 0.1019607843, green: 0.1254901961, blue: 0.1568627451, alpha: 1)
     static var sectionTextColor: UIColor = #colorLiteral(red: 0.2549019608, green: 0.3098039216, blue: 0.3803921569, alpha: 1)
-    static var chatRoomBackgroundColor: UIColor = UIColor(white: 0.95, alpha: 1)
+    static var chatRoomBackgroundColor: UIColor = UIColor(white: 1.0, alpha: 1)
 }

@@ -70,9 +70,10 @@ extension BSLBubble {
     }
     
     func layoutMessageBubble(_ message: String, timeString: String) {
-        let bubble = UIView()
+        let bubble = self.isOutGoing ? UIView() : RoundShadowView()
         self.addSubview(bubble)
         bubble.layer.cornerRadius = 17
+        
         self.layoutTimeLable(timeString)
         self.layoutBubbleTail(bubbleView: bubble)
         let label = self.layoutMessageLable(message)
@@ -104,7 +105,7 @@ extension BSLBubble {
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 15
+        imageView.layer.cornerRadius = 17.0
         self.addSubview(imageView)
         self.layoutTimeLable(timeString)
         var constraints = [NSLayoutConstraint]()

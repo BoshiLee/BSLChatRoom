@@ -14,7 +14,6 @@
 		9F50B10821F710100077D158 /* BSLChatRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F50B10721F710100077D158 /* BSLChatRoomViewModel.swift */; };
 		9F50B10A21F712720077D158 /* BSLMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F50B10921F712720077D158 /* BSLMessage.swift */; };
 		9F50B11021F759350077D158 /* no-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F50B10F21F759350077D158 /* no-image.png */; };
-		9F50B11221F80F050077D158 /* UIStackView+removeAll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F50B11121F80F050077D158 /* UIStackView+removeAll.swift */; };
 		9F6DD4D821F817DC00806437 /* BaseXibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6DD4D721F817DC00806437 /* BaseXibView.swift */; };
 		9F6DD4E021F98C9F00806437 /* BSLBubbleLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6DD4DF21F98C9F00806437 /* BSLBubbleLayout.swift */; };
 		9F6DD4E421F992FD00806437 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6DD4E321F992FD00806437 /* DateHelper.swift */; };
@@ -26,6 +25,7 @@
 		9F87B7F721FDAF2C00936004 /* BSLInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F87B7F621FDAF2C00936004 /* BSLInputView.xib */; };
 		9F87B7FD21FFF2F200936004 /* BSLChatRoomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F87B7FC21FFF2F200936004 /* BSLChatRoomLayout.swift */; };
 		9F87B80322001AC300936004 /* UIGestureHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F87B80222001AC300936004 /* UIGestureHelper.swift */; };
+		9F87B805220033B200936004 /* RoundShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F87B804220033B200936004 /* RoundShadowView.swift */; };
 		9FF4984121F5964300550D41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF4984021F5964300550D41 /* AppDelegate.swift */; };
 		9FF4984621F5964300550D41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FF4984421F5964300550D41 /* Main.storyboard */; };
 		9FF4984821F5964500550D41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FF4984721F5964500550D41 /* Assets.xcassets */; };
@@ -46,7 +46,6 @@
 		9F50B10721F710100077D158 /* BSLChatRoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSLChatRoomViewModel.swift; sourceTree = "<group>"; };
 		9F50B10921F712720077D158 /* BSLMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSLMessage.swift; sourceTree = "<group>"; };
 		9F50B10F21F759350077D158 /* no-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no-image.png"; sourceTree = "<group>"; };
-		9F50B11121F80F050077D158 /* UIStackView+removeAll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+removeAll.swift"; sourceTree = "<group>"; };
 		9F6DD4D721F817DC00806437 /* BaseXibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseXibView.swift; sourceTree = "<group>"; };
 		9F6DD4DF21F98C9F00806437 /* BSLBubbleLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSLBubbleLayout.swift; sourceTree = "<group>"; };
 		9F6DD4E321F992FD00806437 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
@@ -58,6 +57,7 @@
 		9F87B7F621FDAF2C00936004 /* BSLInputView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BSLInputView.xib; sourceTree = "<group>"; };
 		9F87B7FC21FFF2F200936004 /* BSLChatRoomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSLChatRoomLayout.swift; sourceTree = "<group>"; };
 		9F87B80222001AC300936004 /* UIGestureHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGestureHelper.swift; sourceTree = "<group>"; };
+		9F87B804220033B200936004 /* RoundShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundShadowView.swift; sourceTree = "<group>"; };
 		9FF4983D21F5964300550D41 /* BSLChatRoom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BSLChatRoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FF4984021F5964300550D41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FF4984521F5964300550D41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -98,9 +98,9 @@
 				9F87B80222001AC300936004 /* UIGestureHelper.swift */,
 				9FF4987021F6E41400550D41 /* UITableViewHelper.swift */,
 				9F87B7F021FD9A2700936004 /* XibViewHelper.swift */,
-				9F50B11121F80F050077D158 /* UIStackView+removeAll.swift */,
 				9F6DD4D721F817DC00806437 /* BaseXibView.swift */,
 				9F6DD4E321F992FD00806437 /* DateHelper.swift */,
+				9F87B804220033B200936004 /* RoundShadowView.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -245,7 +245,7 @@
 				9F87B7F521FDAF1200936004 /* BSLInputView.swift in Sources */,
 				9FF4986321F6B82100550D41 /* BSLAvatar.swift in Sources */,
 				9FF4984121F5964300550D41 /* AppDelegate.swift in Sources */,
-				9F50B11221F80F050077D158 /* UIStackView+removeAll.swift in Sources */,
+				9F87B805220033B200936004 /* RoundShadowView.swift in Sources */,
 				9F87B7FD21FFF2F200936004 /* BSLChatRoomLayout.swift in Sources */,
 				9F50B10821F710100077D158 /* BSLChatRoomViewModel.swift in Sources */,
 				9FF4987721F6E7FC00550D41 /* BSLBubble.swift in Sources */,
