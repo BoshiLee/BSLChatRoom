@@ -10,7 +10,6 @@ import UIKit
 
 protocol BSLChatRoomPresentable: AnyObject {
     func didAppendMessages(indeices: [IndexPath])
-    func hideKeyboard()
 }
 
 class BSLChatRoomViewModel: NSObject {
@@ -32,10 +31,6 @@ class BSLChatRoomViewModel: NSObject {
 
 // MARK: - Table view data source
 extension BSLChatRoomViewModel: UITableViewDelegate, UITableViewDataSource {
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        self.presenter.hideKeyboard()
-    }
     
     func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
         return 18.0

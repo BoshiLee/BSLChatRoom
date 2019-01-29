@@ -12,9 +12,9 @@ class BSLChatRoomViewController: UIViewController {
     
     var tableView: UITableView!
     var bslInputView: BSLInputView!
-    let originalInputViewHeight: CGFloat = 58.0
     var inputViewHeight: NSLayoutConstraint!
     var inputViewBottom: NSLayoutConstraint!
+    var tableViewBottom: NSLayoutConstraint!
     
     // MARK: - Keyboard Shows properties
     lazy var currentKeyboardHeight: CGFloat = 0.0 
@@ -30,8 +30,7 @@ class BSLChatRoomViewController: UIViewController {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         self.addKeyBoardObserver()
-        self.initInputView()
-        self.initTableView()
+        self.addAccessoryViews()
         self.tableView.dataSource = self.viewModel
         self.tableView.delegate = self.viewModel
         BSLBubbleConfigure.userAvatar = self.fakeUserA

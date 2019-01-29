@@ -88,7 +88,7 @@ extension BSLBubble {
     }
     
     func layoutBubbleTail(bubbleView: UIView) {
-        let tailView = UIImageView(image: self.isOutGoing ? #imageLiteral(resourceName: "outGoingBubbleTail") : #imageLiteral(resourceName: "inCommingBubbleTail"))
+        let tailView = UIImageView(image: self.isOutGoing ? #imageLiteral(resourceName: "outGoingBubbleTail") : #imageLiteral(resourceName: "inCommingBubbleTailS"))
         self.addSubview(tailView)
         tailView.translatesAutoresizingMaskIntoConstraints = false
         let bottom = tailView.bottomAnchor.constraint(equalTo: bubbleView.bottomAnchor)

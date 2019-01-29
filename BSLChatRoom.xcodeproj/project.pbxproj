@@ -26,6 +26,7 @@
 		9F87B7FD21FFF2F200936004 /* BSLChatRoomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F87B7FC21FFF2F200936004 /* BSLChatRoomLayout.swift */; };
 		9F87B80322001AC300936004 /* UIGestureHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F87B80222001AC300936004 /* UIGestureHelper.swift */; };
 		9F87B805220033B200936004 /* RoundShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F87B804220033B200936004 /* RoundShadowView.swift */; };
+		9F87B80B22005F2400936004 /* UITableViewScrollHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F87B80A22005F2400936004 /* UITableViewScrollHelper.swift */; };
 		9FF4984121F5964300550D41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF4984021F5964300550D41 /* AppDelegate.swift */; };
 		9FF4984621F5964300550D41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FF4984421F5964300550D41 /* Main.storyboard */; };
 		9FF4984821F5964500550D41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FF4984721F5964500550D41 /* Assets.xcassets */; };
@@ -58,6 +59,7 @@
 		9F87B7FC21FFF2F200936004 /* BSLChatRoomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSLChatRoomLayout.swift; sourceTree = "<group>"; };
 		9F87B80222001AC300936004 /* UIGestureHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGestureHelper.swift; sourceTree = "<group>"; };
 		9F87B804220033B200936004 /* RoundShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundShadowView.swift; sourceTree = "<group>"; };
+		9F87B80A22005F2400936004 /* UITableViewScrollHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewScrollHelper.swift; sourceTree = "<group>"; };
 		9FF4983D21F5964300550D41 /* BSLChatRoom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BSLChatRoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FF4984021F5964300550D41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FF4984521F5964300550D41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			children = (
 				9F87B80222001AC300936004 /* UIGestureHelper.swift */,
 				9FF4987021F6E41400550D41 /* UITableViewHelper.swift */,
+				9F87B80A22005F2400936004 /* UITableViewScrollHelper.swift */,
 				9F87B7F021FD9A2700936004 /* XibViewHelper.swift */,
 				9F6DD4D721F817DC00806437 /* BaseXibView.swift */,
 				9F6DD4E321F992FD00806437 /* DateHelper.swift */,
@@ -244,6 +247,7 @@
 			files = (
 				9F87B7F521FDAF1200936004 /* BSLInputView.swift in Sources */,
 				9FF4986321F6B82100550D41 /* BSLAvatar.swift in Sources */,
+				9F87B80B22005F2400936004 /* UITableViewScrollHelper.swift in Sources */,
 				9FF4984121F5964300550D41 /* AppDelegate.swift in Sources */,
 				9F87B805220033B200936004 /* RoundShadowView.swift in Sources */,
 				9F87B7FD21FFF2F200936004 /* BSLChatRoomLayout.swift in Sources */,

@@ -10,12 +10,20 @@ import UIKit
 
 extension BSLChatRoomViewController {
     
-    func initTableView() {
+    func addAccessoryViews()  {
         self.tableView = UITableView(frame: .zero, style: .grouped)
         self.tableView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(tableView)
         self.tableView.separatorStyle = .none
         self.tableView.backgroundColor = .chatRoomBackgroundColor
+        self.bslInputView = XibViewHelper<BSLInputView>.instantiateNib()
+        self.bslInputView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(self.bslInputView)
+        self.layoutTableView()
+        self.layoutInputView()
+    }
+    
+    func layoutTableView() {
         let top: NSLayoutConstraint
         if #available(iOS 11.0, *) {
             top = self.tableView.topAnchor.constraint(equalTo: self.view.topAnchor)
@@ -24,19 +32,15 @@ extension BSLChatRoomViewController {
         }
         let leading = self.tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor)
         let tralling = self.tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
-        let bottom = self.tableView.bottomAnchor.constraint(equalTo: self.bslInputView.topAnchor)
-        NSLayoutConstraint.activate([top, leading, tralling, bottom])
+        self.tableViewBottom = self.tableView.bottomAnchor.constraint(equalTo: self.bslInputView.topAnchor)
+        NSLayoutConstraint.activate([top, leading, tralling, self.tableViewBottom])
     }
     
-    func initInputView() {
-        self.bslInputView = XibViewHelper<BSLInputView>.instantiateNib()
-        self.bslInputView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(self.bslInputView)
-        self.inputViewHeight = self.bslInputView.heightAnchor.constraint(equalToConstant: self.originalInputViewHeight)
+    func layoutInputView() {
+        self.inputViewHeight = self.bslInputView.heightAnchor.constraint(equalToConstant: 58.0)
         let leading = self.bslInputView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor)
         let tralling = self.bslInputView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
         self.setInputViewBottom()
-        
         NSLayoutConstraint.activate([self.inputViewHeight, leading, tralling])
     }
 }
@@ -94,9 +98,13 @@ extension BSLChatRoomViewController {
         UIView.animate(withDuration: self.kbShowingDuration, delay: 0.0, options: .init(rawValue: self.kbShowingCurve), animations: { [weak self] in
             guard let weakSelf = self else { return }
             weakSelf.inputViewBottom.constant = bottomConstant
+            if isShowingKeyboard {
+                weakSelf.tableView.scrollToBottom(animated: true)
+            }
             weakSelf.view.layoutIfNeeded()
-        }, completion: nil)
+            }, completion: nil)
     }
+    
     
     func setInputViewBottom() {
         if #available(iOS 11, *) {
