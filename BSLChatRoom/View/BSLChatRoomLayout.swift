@@ -35,14 +35,9 @@ extension BSLChatRoomViewController {
         self.inputViewHeight = self.bslInputView.heightAnchor.constraint(equalToConstant: self.originalInputViewHeight)
         let leading = self.bslInputView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor)
         let tralling = self.bslInputView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+        self.setInputViewBottom()
         
-        if #available(iOS 11, *) {
-            let guide = view.safeAreaLayoutGuide
-            self.inputViewBottom = self.bslInputView.bottomAnchor.constraint(equalTo: guide.bottomAnchor)
-        } else {
-            self.inputViewBottom = self.bslInputView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
-        }
-        NSLayoutConstraint.activate([self.inputViewHeight, leading, tralling, self.inputViewBottom])
+        NSLayoutConstraint.activate([self.inputViewHeight, leading, tralling])
     }
 }
 
@@ -58,5 +53,58 @@ extension BSLChatRoomViewController {
     
     @objc func dismissKeyboard() {
         self.view.endEditing(true)
+    }
+}
+
+extension BSLChatRoomViewController {
+    func addKeyBoardObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+
+    @objc func keyboardWillShow(notification: Notification) {
+        guard let userInfo = notification.userInfo else { return }
+        if let keyboardSize = ((userInfo[UIResponder.keyboardFrameEndUserInfoKey]) as AnyObject).cgRectValue {
+            self.currentKeyboardHeight = keyboardSize.height
+        }
+        self.animatingInputView(userInfo: userInfo, isShowingKeyboard: true)
+    }
+    
+    @objc func keyboardWillHide(notification: Notification) {
+        self.currentKeyboardHeight = 0.0
+        guard let userInfo = notification.userInfo else { return }
+        self.animatingInputView(userInfo: userInfo, isShowingKeyboard: false)
+    }
+    
+    func animatingInputView(userInfo: [AnyHashable : Any], isShowingKeyboard: Bool) {
+        if let duration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double {
+            self.kbShowingDuration = duration
+        }
+        if let curve = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt {
+            self.kbShowingCurve = curve
+        }
+        
+        let bottomPadding: CGFloat
+        if #available(iOS 11.0, *) {
+            bottomPadding = UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0.0
+        } else {
+            bottomPadding = 0.0
+        }
+        let bottomConstant = isShowingKeyboard ? -self.currentKeyboardHeight + bottomPadding : 0
+        UIView.animate(withDuration: self.kbShowingDuration, delay: 0.0, options: .init(rawValue: self.kbShowingCurve), animations: { [weak self] in
+            guard let weakSelf = self else { return }
+            weakSelf.inputViewBottom.constant = bottomConstant
+            weakSelf.view.layoutIfNeeded()
+        }, completion: nil)
+    }
+    
+    func setInputViewBottom() {
+        if #available(iOS 11, *) {
+            let guide = view.safeAreaLayoutGuide
+            self.inputViewBottom = self.bslInputView.bottomAnchor.constraint(equalTo: guide.bottomAnchor)
+        } else {
+            self.inputViewBottom = self.bslInputView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+        }
+        NSLayoutConstraint.activate([self.inputViewBottom])
     }
 }
