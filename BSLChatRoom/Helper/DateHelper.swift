@@ -173,8 +173,7 @@ enum DateFormate: String {
     case slashDateWithHHmm = "YYYY/MM/dd HH:mm"
     case dashDate = "YYYY-MM-dd"
     case dashDateWithHHmm = "YYYY-MM-dd HH:mm"
-    case chineseYYYYMMdddEEEEE = "YYYY 年 M 月 dd 日 (EEEEE) HH:mm"
-    case chineseYYYYMMddd = "YYYY 年 M 月 dd 日 (EEEEE)"
+    case chineseYYYYMMdddEEEEE = "YYYY 年 M 月 dd 日 (EEEEE)"
     case HHmm = "HH:mm"
     
     private var dateFormatter: DateFormatter {
@@ -265,17 +264,7 @@ struct TimeStampConverter {
         let dateString = formatter.string(from: date)
         return dateString
     }
-    
-//    func convertToChineseDateString(of formate: DateFormate) -> String? {
-//        let formatter = DateFormatter()
-//        formatter.locale = Locale(identifier: "zh_Hant_TW")
-//        formatter.timeZone = Date.systemTimeZone
-//        formatter.dateFormat = formate.rawValue
-//        let date = Date(timeIntervalSince1970: TimeInterval(timeStamp))
-//        let dateString = formatter.string(from: date)
-//        return dateString
-//    }
-    
+        
     static func converToTimeStamp(_ date: Date) -> TimeStampConverter {
         let timeInterval: TimeInterval = date.timeIntervalSince1970
         return TimeStampConverter(timeStamp: timeInterval)

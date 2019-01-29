@@ -74,6 +74,7 @@ extension BSLBubble {
         self.addSubview(bubble)
         bubble.layer.cornerRadius = 17
         self.layoutTimeLable(timeString)
+        self.layoutBubbleTail(bubbleView: bubble)
         let label = self.layoutMessageLable(message)
         var constraints = [NSLayoutConstraint]()
         bubble.backgroundColor = self.isOutGoing ? .outGoingBubbleColor : .inCommingBubbleColor
@@ -83,6 +84,17 @@ extension BSLBubble {
         let leading = bubble.leadingAnchor.constraint(equalTo: label.leadingAnchor, constant: -2*paddingSpace)
         constraints.append(contentsOf: [top, bottom, tralling, leading])
         NSLayoutConstraint.activate(constraints)
+    }
+    
+    func layoutBubbleTail(bubbleView: UIView) {
+        let tailView = UIImageView(image: self.isOutGoing ? #imageLiteral(resourceName: "outGoingBubbleTail") : #imageLiteral(resourceName: "inCommingBubbleTail"))
+        self.addSubview(tailView)
+        tailView.translatesAutoresizingMaskIntoConstraints = false
+        let bottom = tailView.bottomAnchor.constraint(equalTo: bubbleView.bottomAnchor)
+        let xAnchor = self.isOutGoing ?
+            tailView.trailingAnchor.constraint(equalTo: bubbleView.trailingAnchor) :
+            tailView.leadingAnchor.constraint(equalTo: bubbleView.leadingAnchor)
+        NSLayoutConstraint.activate([bottom, xAnchor])
     }
 }
 
