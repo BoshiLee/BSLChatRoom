@@ -12,7 +12,6 @@ struct BSLBubbleConfigure {
     static var shouldShowSelfAvatar: Bool = false
     static var shouldShowOtherAvatar: Bool = true
     static var avatarImageWidth: CGFloat = 32.0
-    static var userAvatar: BSLAvatar?
 }
 
 extension UIColor {

@@ -6,27 +6,35 @@
 //  Copyright © 2019 Boshi Li. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class BSLBubbleViewModel: TableCellViewModelProtocol {
     
     let avatar: BSLAvatar
     var isOutGoing: Bool = false
-    let type: BSLBubbleType
+    let type: BSLMessageType
     var timeString: String
     
-    init(message: BSLMessage) {
+    init(message: BSLMessage, isOutGoing: Bool) {
         self.avatar = message.avatar
         self.type = message.type
         self.timeString = message.timeStamp.toDateString(formate: .HHmm)
-        self.isOutGoing = self.isUserSentsThisMessage(message: message)
+        self.isOutGoing = isOutGoing
         if isOutGoing {
             self.timeString = self.timeString + (message.isRead ? "已讀" : "")
         }
     }
     
-    fileprivate func isUserSentsThisMessage(message: BSLMessage) -> Bool {
-        guard let userAvatar = BSLBubbleConfigure.userAvatar else { return false }
-        return message.avatar == userAvatar
+    func cellInstance(tableView: UITableView, atIndexPath indexPath: IndexPath) -> BSLBubbleProtocol {
+        let cell: BSLBubbleProtocol
+        switch self.type {
+        case .message:
+            tableView.register(BSLMessageBubble.self)
+            cell = tableView.dequeue(BSLMessageBubble.self, indexPath: indexPath)
+        case .image:
+            tableView.register(BSLImageBubble.self)
+            cell = tableView.dequeue(BSLImageBubble.self, indexPath: indexPath)
+        }
+        return cell
     }
 }

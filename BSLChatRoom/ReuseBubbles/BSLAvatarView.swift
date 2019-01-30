@@ -10,6 +10,12 @@ import UIKit
 
 class BSLAvatarView: BaseXibView {
 
-    @IBOutlet weak var imageView: UIImageView!
+    var placeHolderImage: UIImage = #imageLiteral(resourceName: "avatarDefault")
+    
+    @IBOutlet weak var imageView: WebImageView! {
+        didSet {
+            imageView.configuration.placeholderImage = self.placeHolderImage
+        }
+    }
         
 }

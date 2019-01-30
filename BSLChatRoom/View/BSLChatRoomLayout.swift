@@ -17,6 +17,7 @@ extension BSLChatRoomViewController {
         self.tableView.separatorStyle = .none
         self.tableView.backgroundColor = .chatRoomBackgroundColor
         self.bslInputView = XibViewHelper<BSLInputView>.instantiateNib()
+        self.bslInputView.delegate = self
         self.bslInputView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(self.bslInputView)
         self.layoutTableView()

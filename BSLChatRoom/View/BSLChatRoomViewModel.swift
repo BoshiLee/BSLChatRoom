@@ -14,19 +14,30 @@ protocol BSLChatRoomPresentable: AnyObject {
 
 class BSLChatRoomViewModel: NSObject {
     
-    fileprivate weak var presenter: BSLChatRoomPresentable!
-    fileprivate let coordinator = BSLChatRoomCoordinator()
-    fileprivate lazy var bubbleVMs = [[BSLBubbleViewModel]]()
     // MARK: - Properties
+    fileprivate weak var presenter: BSLChatRoomPresentable!
+    fileprivate var coordinator: BSLChatRoomCoordinator?
+    fileprivate lazy var bubbleVMs = [[BSLBubbleViewModel]]()
+    var sender: BSLAvatar?
     
+    // MARK: - initial
     init(presenter: BSLChatRoomPresentable) {
         self.presenter = presenter
     }
 
+    
     func appendMessage(_ newMessages: [BSLMessage]) {
-        self.bubbleVMs = self.coordinator.appendNewMessages(newMessages)
+        guard self.coordinator != nil else {
+            fatalError("ChatRoom Sender is nil, please give it value befor append new message.")
+        }
+        self.bubbleVMs = self.coordinator!.appendNewMessages(newMessages)
     }
     
+    
+    func setSender(_ sender: BSLAvatar) {
+        self.sender = sender
+        self.coordinator = BSLChatRoomCoordinator(senderId: sender.account)
+    }
 }
 
 // MARK: - Table view data source
@@ -49,7 +60,7 @@ extension BSLChatRoomViewModel: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let vm = self.coordinator.createHeader(atSection: section) else { return nil }
+        guard let vm = self.coordinator?.createHeader(atSection: section) else { return nil }
         let sectionView = vm.sectionInstance(headerFooter: BSLSectionView.self, tableView: tableView)
         sectionView.configure(with: vm)
         return sectionView
@@ -66,9 +77,9 @@ extension BSLChatRoomViewModel: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let bubbleVM = self.bubbleVMs[indexPath.section][indexPath.row]
-        let cell = bubbleVM.cellInstance(cell: BSLBubble.self, tableView: tableView, atIndexPath: indexPath)
+        let cell = bubbleVM.cellInstance(tableView: tableView, atIndexPath: indexPath)
         cell.configure(withViewModel: bubbleVM)
-        return cell
+        return cell as! UITableViewCell
     }
 
 

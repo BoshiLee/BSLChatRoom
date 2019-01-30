@@ -8,14 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		9F04A90321FACF6700106693 /* BSLChatRoomCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F04A90221FACF6700106693 /* BSLChatRoomCoordinator.swift */; };
-		9F50B0FF21F6FD9E0077D158 /* BSLBubbleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F50B0FE21F6FD9E0077D158 /* BSLBubbleType.swift */; };
+		9F50B0FF21F6FD9E0077D158 /* BSLMessageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F50B0FE21F6FD9E0077D158 /* BSLMessageType.swift */; };
 		9F50B10321F703AF0077D158 /* BSLBubbleConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F50B10221F703AF0077D158 /* BSLBubbleConfigure.swift */; };
 		9F50B10521F70D460077D158 /* BSLBubbleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F50B10421F70D460077D158 /* BSLBubbleViewModel.swift */; };
 		9F50B10821F710100077D158 /* BSLChatRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F50B10721F710100077D158 /* BSLChatRoomViewModel.swift */; };
 		9F50B10A21F712720077D158 /* BSLMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F50B10921F712720077D158 /* BSLMessage.swift */; };
-		9F50B11021F759350077D158 /* no-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F50B10F21F759350077D158 /* no-image.png */; };
 		9F6DD4D821F817DC00806437 /* BaseXibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6DD4D721F817DC00806437 /* BaseXibView.swift */; };
-		9F6DD4E021F98C9F00806437 /* BSLBubbleLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6DD4DF21F98C9F00806437 /* BSLBubbleLayout.swift */; };
+		9F6DD4E021F98C9F00806437 /* BSLMessageBubbleLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6DD4DF21F98C9F00806437 /* BSLMessageBubbleLayout.swift */; };
 		9F6DD4E421F992FD00806437 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6DD4E321F992FD00806437 /* DateHelper.swift */; };
 		9F73426D21F813A90042A8CC /* BSLAvatarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F73426C21F813A90042A8CC /* BSLAvatarView.xib */; };
 		9F87B7E721FC1A4200936004 /* BSLSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F87B7E621FC1A4200936004 /* BSLSectionView.swift */; };
@@ -27,6 +26,12 @@
 		9F87B80322001AC300936004 /* UIGestureHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F87B80222001AC300936004 /* UIGestureHelper.swift */; };
 		9F87B805220033B200936004 /* RoundShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F87B804220033B200936004 /* RoundShadowView.swift */; };
 		9F87B80B22005F2400936004 /* UITableViewScrollHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F87B80A22005F2400936004 /* UITableViewScrollHelper.swift */; };
+		9FCEA0D1220147230064C57C /* BSLChatRoomDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCEA0D0220147230064C57C /* BSLChatRoomDelegate.swift */; };
+		9FCEA0D522014EEE0064C57C /* BSLImageBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCEA0D422014EEE0064C57C /* BSLImageBubble.swift */; };
+		9FCEA0D9220168460064C57C /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCEA0D8220168460064C57C /* WebImageView.swift */; };
+		9FCEA0DD22016BE10064C57C /* BSLBubbleLayoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCEA0DC22016BE10064C57C /* BSLBubbleLayoutable.swift */; };
+		9FCEA0E1220182870064C57C /* PhotoPickerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCEA0E0220182870064C57C /* PhotoPickerHelper.swift */; };
+		9FCEA0E3220182AF0064C57C /* AlertHepler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCEA0E2220182AF0064C57C /* AlertHepler.swift */; };
 		9FF4984121F5964300550D41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF4984021F5964300550D41 /* AppDelegate.swift */; };
 		9FF4984621F5964300550D41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FF4984421F5964300550D41 /* Main.storyboard */; };
 		9FF4984821F5964500550D41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FF4984721F5964500550D41 /* Assets.xcassets */; };
@@ -35,20 +40,19 @@
 		9FF4986121F6B74700550D41 /* BSLBubbleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF4986021F6B74700550D41 /* BSLBubbleProtocol.swift */; };
 		9FF4986321F6B82100550D41 /* BSLAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF4986221F6B82100550D41 /* BSLAvatar.swift */; };
 		9FF4987121F6E41400550D41 /* UITableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF4987021F6E41400550D41 /* UITableViewHelper.swift */; };
-		9FF4987721F6E7FC00550D41 /* BSLBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF4987521F6E7FC00550D41 /* BSLBubble.swift */; };
+		9FF4987721F6E7FC00550D41 /* BSLMessageBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF4987521F6E7FC00550D41 /* BSLMessageBubble.swift */; };
 		9FF4987A21F6ED3A00550D41 /* BSLAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF4987921F6ED3A00550D41 /* BSLAvatarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9F04A90221FACF6700106693 /* BSLChatRoomCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSLChatRoomCoordinator.swift; sourceTree = "<group>"; };
-		9F50B0FE21F6FD9E0077D158 /* BSLBubbleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSLBubbleType.swift; sourceTree = "<group>"; };
+		9F50B0FE21F6FD9E0077D158 /* BSLMessageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSLMessageType.swift; sourceTree = "<group>"; };
 		9F50B10221F703AF0077D158 /* BSLBubbleConfigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSLBubbleConfigure.swift; sourceTree = "<group>"; };
 		9F50B10421F70D460077D158 /* BSLBubbleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSLBubbleViewModel.swift; sourceTree = "<group>"; };
 		9F50B10721F710100077D158 /* BSLChatRoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSLChatRoomViewModel.swift; sourceTree = "<group>"; };
 		9F50B10921F712720077D158 /* BSLMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSLMessage.swift; sourceTree = "<group>"; };
-		9F50B10F21F759350077D158 /* no-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no-image.png"; sourceTree = "<group>"; };
 		9F6DD4D721F817DC00806437 /* BaseXibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseXibView.swift; sourceTree = "<group>"; };
-		9F6DD4DF21F98C9F00806437 /* BSLBubbleLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSLBubbleLayout.swift; sourceTree = "<group>"; };
+		9F6DD4DF21F98C9F00806437 /* BSLMessageBubbleLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSLMessageBubbleLayout.swift; sourceTree = "<group>"; };
 		9F6DD4E321F992FD00806437 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		9F73426C21F813A90042A8CC /* BSLAvatarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BSLAvatarView.xib; sourceTree = "<group>"; };
 		9F87B7E621FC1A4200936004 /* BSLSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSLSectionView.swift; sourceTree = "<group>"; };
@@ -60,6 +64,12 @@
 		9F87B80222001AC300936004 /* UIGestureHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGestureHelper.swift; sourceTree = "<group>"; };
 		9F87B804220033B200936004 /* RoundShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundShadowView.swift; sourceTree = "<group>"; };
 		9F87B80A22005F2400936004 /* UITableViewScrollHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewScrollHelper.swift; sourceTree = "<group>"; };
+		9FCEA0D0220147230064C57C /* BSLChatRoomDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSLChatRoomDelegate.swift; sourceTree = "<group>"; };
+		9FCEA0D422014EEE0064C57C /* BSLImageBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSLImageBubble.swift; sourceTree = "<group>"; };
+		9FCEA0D8220168460064C57C /* WebImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
+		9FCEA0DC22016BE10064C57C /* BSLBubbleLayoutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSLBubbleLayoutable.swift; sourceTree = "<group>"; };
+		9FCEA0E0220182870064C57C /* PhotoPickerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerHelper.swift; sourceTree = "<group>"; };
+		9FCEA0E2220182AF0064C57C /* AlertHepler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHepler.swift; sourceTree = "<group>"; };
 		9FF4983D21F5964300550D41 /* BSLChatRoom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BSLChatRoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FF4984021F5964300550D41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FF4984521F5964300550D41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -70,7 +80,7 @@
 		9FF4986021F6B74700550D41 /* BSLBubbleProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSLBubbleProtocol.swift; sourceTree = "<group>"; };
 		9FF4986221F6B82100550D41 /* BSLAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSLAvatar.swift; sourceTree = "<group>"; };
 		9FF4987021F6E41400550D41 /* UITableViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewHelper.swift; sourceTree = "<group>"; };
-		9FF4987521F6E7FC00550D41 /* BSLBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSLBubble.swift; sourceTree = "<group>"; };
+		9FF4987521F6E7FC00550D41 /* BSLMessageBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSLMessageBubble.swift; sourceTree = "<group>"; };
 		9FF4987921F6ED3A00550D41 /* BSLAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSLAvatarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,11 +109,12 @@
 			children = (
 				9F87B80222001AC300936004 /* UIGestureHelper.swift */,
 				9FF4987021F6E41400550D41 /* UITableViewHelper.swift */,
-				9F87B80A22005F2400936004 /* UITableViewScrollHelper.swift */,
+				9FCEA0E2220182AF0064C57C /* AlertHepler.swift */,
+				9FCEA0E0220182870064C57C /* PhotoPickerHelper.swift */,
+				9FCEA0D8220168460064C57C /* WebImageView.swift */,
 				9F87B7F021FD9A2700936004 /* XibViewHelper.swift */,
 				9F6DD4D721F817DC00806437 /* BaseXibView.swift */,
 				9F6DD4E321F992FD00806437 /* DateHelper.swift */,
-				9F87B804220033B200936004 /* RoundShadowView.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -115,11 +126,21 @@
 				9F50B10721F710100077D158 /* BSLChatRoomViewModel.swift */,
 				9F04A90221FACF6700106693 /* BSLChatRoomCoordinator.swift */,
 				9FF4985421F5B63700550D41 /* BSLChatRoomViewController.swift */,
+				9FCEA0D0220147230064C57C /* BSLChatRoomDelegate.swift */,
 				9F87B7FC21FFF2F200936004 /* BSLChatRoomLayout.swift */,
 				9F87B7F421FDAF1200936004 /* BSLInputView.swift */,
 				9F87B7F621FDAF2C00936004 /* BSLInputView.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		9FCEA0E42201890B0064C57C /* BSLHelper */ = {
+			isa = PBXGroup;
+			children = (
+				9F87B80A22005F2400936004 /* UITableViewScrollHelper.swift */,
+				9F87B804220033B200936004 /* RoundShadowView.swift */,
+			);
+			path = BSLHelper;
 			sourceTree = "<group>";
 		};
 		9FF4983421F5964300550D41 = {
@@ -144,11 +165,11 @@
 				9FF4984021F5964300550D41 /* AppDelegate.swift */,
 				9FF4984421F5964300550D41 /* Main.storyboard */,
 				9F50B10B21F712960077D158 /* Helper */,
+				9FCEA0E42201890B0064C57C /* BSLHelper */,
 				9F50B10C21F712A40077D158 /* View */,
 				9F50B10621F70F0E0077D158 /* Model */,
 				9FF4987221F6E66500550D41 /* ReuseBubbles */,
 				9FF4984721F5964500550D41 /* Assets.xcassets */,
-				9F50B10F21F759350077D158 /* no-image.png */,
 				9FF4984921F5964500550D41 /* LaunchScreen.storyboard */,
 				9FF4984C21F5964500550D41 /* Info.plist */,
 			);
@@ -159,9 +180,11 @@
 			isa = PBXGroup;
 			children = (
 				9FF4986021F6B74700550D41 /* BSLBubbleProtocol.swift */,
-				9F50B0FE21F6FD9E0077D158 /* BSLBubbleType.swift */,
-				9FF4987521F6E7FC00550D41 /* BSLBubble.swift */,
-				9F6DD4DF21F98C9F00806437 /* BSLBubbleLayout.swift */,
+				9FCEA0DC22016BE10064C57C /* BSLBubbleLayoutable.swift */,
+				9F50B0FE21F6FD9E0077D158 /* BSLMessageType.swift */,
+				9FF4987521F6E7FC00550D41 /* BSLMessageBubble.swift */,
+				9F6DD4DF21F98C9F00806437 /* BSLMessageBubbleLayout.swift */,
+				9FCEA0D422014EEE0064C57C /* BSLImageBubble.swift */,
 				9F50B10421F70D460077D158 /* BSLBubbleViewModel.swift */,
 				9FF4987921F6ED3A00550D41 /* BSLAvatarView.swift */,
 				9F73426C21F813A90042A8CC /* BSLAvatarView.xib */,
@@ -232,7 +255,6 @@
 				9FF4984B21F5964500550D41 /* LaunchScreen.storyboard in Resources */,
 				9F87B7F721FDAF2C00936004 /* BSLInputView.xib in Resources */,
 				9FF4984821F5964500550D41 /* Assets.xcassets in Resources */,
-				9F50B11021F759350077D158 /* no-image.png in Resources */,
 				9FF4984621F5964300550D41 /* Main.storyboard in Resources */,
 				9F73426D21F813A90042A8CC /* BSLAvatarView.xib in Resources */,
 			);
@@ -246,29 +268,35 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F87B7F521FDAF1200936004 /* BSLInputView.swift in Sources */,
+				9FCEA0D1220147230064C57C /* BSLChatRoomDelegate.swift in Sources */,
 				9FF4986321F6B82100550D41 /* BSLAvatar.swift in Sources */,
+				9FCEA0E1220182870064C57C /* PhotoPickerHelper.swift in Sources */,
 				9F87B80B22005F2400936004 /* UITableViewScrollHelper.swift in Sources */,
 				9FF4984121F5964300550D41 /* AppDelegate.swift in Sources */,
 				9F87B805220033B200936004 /* RoundShadowView.swift in Sources */,
 				9F87B7FD21FFF2F200936004 /* BSLChatRoomLayout.swift in Sources */,
+				9FCEA0D9220168460064C57C /* WebImageView.swift in Sources */,
 				9F50B10821F710100077D158 /* BSLChatRoomViewModel.swift in Sources */,
-				9FF4987721F6E7FC00550D41 /* BSLBubble.swift in Sources */,
+				9FF4987721F6E7FC00550D41 /* BSLMessageBubble.swift in Sources */,
 				9F87B7E721FC1A4200936004 /* BSLSectionView.swift in Sources */,
 				9FF4986121F6B74700550D41 /* BSLBubbleProtocol.swift in Sources */,
-				9F50B0FF21F6FD9E0077D158 /* BSLBubbleType.swift in Sources */,
+				9F50B0FF21F6FD9E0077D158 /* BSLMessageType.swift in Sources */,
 				9FF4985521F5B63700550D41 /* BSLChatRoomViewController.swift in Sources */,
 				9FF4987121F6E41400550D41 /* UITableViewHelper.swift in Sources */,
 				9F87B7ED21FD6CD200936004 /* BSLSectionViewModel.swift in Sources */,
 				9F04A90321FACF6700106693 /* BSLChatRoomCoordinator.swift in Sources */,
+				9FCEA0E3220182AF0064C57C /* AlertHepler.swift in Sources */,
 				9F6DD4E421F992FD00806437 /* DateHelper.swift in Sources */,
+				9FCEA0D522014EEE0064C57C /* BSLImageBubble.swift in Sources */,
 				9F50B10521F70D460077D158 /* BSLBubbleViewModel.swift in Sources */,
 				9F87B80322001AC300936004 /* UIGestureHelper.swift in Sources */,
 				9F6DD4D821F817DC00806437 /* BaseXibView.swift in Sources */,
-				9F6DD4E021F98C9F00806437 /* BSLBubbleLayout.swift in Sources */,
+				9F6DD4E021F98C9F00806437 /* BSLMessageBubbleLayout.swift in Sources */,
 				9F87B7F121FD9A2700936004 /* XibViewHelper.swift in Sources */,
 				9F50B10A21F712720077D158 /* BSLMessage.swift in Sources */,
 				9FF4987A21F6ED3A00550D41 /* BSLAvatarView.swift in Sources */,
 				9F50B10321F703AF0077D158 /* BSLBubbleConfigure.swift in Sources */,
+				9FCEA0DD22016BE10064C57C /* BSLBubbleLayoutable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

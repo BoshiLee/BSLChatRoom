@@ -9,12 +9,12 @@
 import UIKit
 
 struct BSLAvatar: Equatable {
-    let image: UIImage
+    let imageURL: URL
     let account: String
     let nickName: String
     
-    init(image: UIImage = #imageLiteral(resourceName: "avatarDefault"), account: String, nickName: String) {
-        self.image = image
+    init(imageURL: URL, account: String, nickName: String) {
+        self.imageURL = imageURL
         self.account = account
         self.nickName = nickName
     }

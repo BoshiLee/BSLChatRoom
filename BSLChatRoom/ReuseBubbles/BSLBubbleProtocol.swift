@@ -12,12 +12,3 @@ protocol BSLBubbleProtocol where Self: UITableViewCell {
     var isOutGoing: Bool { get set }
     func configure(withViewModel viewModel: BSLBubbleViewModel)
 }
-
-protocol BSLBubbleLayoutable {
-    func xAxisContraint() -> NSLayoutConstraint
-}
-
-extension BSLBubbleLayoutable where Self: BSLBubbleProtocol {
-
-
-}

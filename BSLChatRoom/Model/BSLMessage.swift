@@ -10,12 +10,12 @@ import Foundation
 
 struct BSLMessage {
     let avatar: BSLAvatar
-    let type: BSLBubbleType
+    let type: BSLMessageType
     let timeStamp: Int64
     var isRead: Bool
     let guid: String
     
-    init(guid: String, avatar: BSLAvatar, type: BSLBubbleType, timeStamp: Int64, isRead: Bool) {
+    init(guid: String, avatar: BSLAvatar, type: BSLMessageType, timeStamp: Int64, isRead: Bool) {
         self.guid = guid
         self.avatar = avatar
         self.type = type

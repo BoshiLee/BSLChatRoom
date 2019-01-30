@@ -8,13 +8,13 @@
 
 import UIKit
 
-class BSLBubble: UITableViewCell, BSLBubbleProtocol {
+class BSLMessageBubble: UITableViewCell, BSLBubbleProtocol {
     
     var isOutGoing: Bool = false
     
     var avatarView: BSLAvatarView?
-    var paddingSpace: CGFloat = 8.0
-    lazy var timeLabel = UILabel()
+    
+    var timeLabel = UILabel()
     
     // MARK: - Cell initial
     
@@ -27,27 +27,21 @@ class BSLBubble: UITableViewCell, BSLBubbleProtocol {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func initailAvatarView() {
+        self.avatarView = XibViewHelper<BSLAvatarView>.instantiateNib()
+    }
         
     override func prepareForReuse() {
         self.avatarView = nil
         self.subviews.forEach { $0.removeFromSuperview() }
     }
     
-        
     func configure(withViewModel viewModel: BSLBubbleViewModel) {
         self.isOutGoing = viewModel.isOutGoing
-        self.handleBubbleLayout(type: viewModel.type, avatar: viewModel.avatar, timeString: viewModel.timeString)
-        
+        guard case .message(let content) = viewModel.type else { return }
+        self.layoutAvatarView(imageURL: viewModel.avatar.imageURL)
+        self.layoutMessageBubble(content, timeString: viewModel.timeString)
     }
     
-    func handleBubbleLayout(type: BSLBubbleType, avatar: BSLAvatar, timeString: String) {
-        self.layoutAvatarView(avatarImage: avatar.image)
-        switch type {
-        case .message(let content):
-            self.layoutMessageBubble(content, timeString: timeString)
-        case .image(let content):
-            self.layoutImageBubble(content, timeString: timeString)
-        }
-    }
-        
 }

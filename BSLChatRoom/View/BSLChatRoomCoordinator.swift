@@ -10,6 +10,12 @@ import Foundation
 
 class BSLChatRoomCoordinator {
     
+    var senderId: String
+    
+    init(senderId: String) {
+        self.senderId = senderId
+    }
+    
     fileprivate var groupMessages: [[BSLMessage]] = [] {
         didSet {
             groupMessages.sort { ($0[0].timeStamp) < ($1[0].timeStamp) }
@@ -18,11 +24,17 @@ class BSLChatRoomCoordinator {
     func appendNewMessages(_ messages: [BSLMessage]) -> [[BSLBubbleViewModel]] {
         self.groupingMessages(messages)
         
-        return groupMessages.compactMap { messages in
+        return groupMessages.map { messages in
             return messages.map {
-                BSLBubbleViewModel(message: $0)
+                BSLBubbleViewModel(message: $0, isOutGoing: $0.avatar.account == self.senderId)
             }
         }
+    }
+    
+    func fetchIndexPaths(fromMessages: [BSLMessage]) -> [IndexPath] {
+        var indexPaths: [IndexPath] = []
+        
+        return indexPaths
     }
     
     fileprivate func groupingMessages(_ messages: [BSLMessage]) {
